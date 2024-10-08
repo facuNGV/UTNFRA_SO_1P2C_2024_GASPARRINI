@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo groupadd p1c2_2024_gAlumno
 sudo groupadd p1c2_2024_gProfesores
-passwd vagrant
+echo "vagrant:pepe" | sudo chpasswd
 # Añadir usuarios con la misma contraseña que el usuario root
 sudo useradd -m -s /bin/bash -c "alumno 1" -G p1c2_2024_gAlumno -p "$(sudo grep vagrant /etc/shadow | awk -F ':' '{print $2}')" p1c2_2024_A1
 sudo useradd -m -s /bin/bash -c "alumno 2" -G p1c2_2024_gAlumno -p "$(sudo grep vagrant /etc/shadow | awk -F ':' '{print $2}')" p1c2_2024_A2
